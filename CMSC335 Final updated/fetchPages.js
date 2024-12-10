@@ -62,7 +62,7 @@ export async function fetchAllPages() {
         console.log("Fetched!");
         
         allItems.forEach(item => {
-            console.log(item.title);
+            //console.log(item.title);
             const suspect = new Suspect(item);
             suspectList.push(suspect);
         });
