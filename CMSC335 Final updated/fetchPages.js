@@ -13,12 +13,12 @@ export async function fetchAllPages() {
             //API CALL
             //The FBI API is does not allow for many API calls before it throws a "429 Too Many Requests Error"
             //Our code first attempts to pull as many JSON files as possible from the API
+            const response = await fetch(`${apiUrl}?page=${i}`);
 
             if (!response.ok) {
                 //However any page it cannot grab from the API it will grab from the folder "JSON FILES". 
                 //Our program satisfies the API pull requirement while also supplementing our website with additional calls. 
                 //We talked with a TA (Hted Oo) and he said this was okay.
-                const response = await fetch(`${apiUrl}?page=${i}`);
                 console.error(`Error fetching page ${i}:`, response.status, response.statusText);
             
                 const targetFileName = `list${i}.json`; 
